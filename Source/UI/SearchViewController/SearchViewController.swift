@@ -8,8 +8,22 @@
 
 import UIKit
 
+import CoreData
+
 class SearchViewController: UIViewController, RootViewGettable {
     typealias RootViewType = SearchView
+    
+    fileprivate lazy var fetchedResultsController: NSFetchedResultsController<SearchRepository> = {
+        let descriptor = NSSortDescriptor(key: #keyPath(SearchRepository.stars), ascending: true)
+        let request = SearchRepository.createFetchRequest(sortDescriptors: [descriptor])
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                                                                  managedObjectContext: CoreDataManager.shared.viewContext,
+                                                                  sectionNameKeyPath: nil,
+                                                                  cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController as! NSFetchedResultsController<SearchRepository>
+    }()
     
     var context: SearchContext? {
         didSet {
@@ -17,15 +31,25 @@ class SearchViewController: UIViewController, RootViewGettable {
         }
     }
     
-//MARK: -
-//MARK: View Lifecycle
+    //MARK: -
+    //MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.context = SearchContext()
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            print(error)
+        }
     }
-
+    
+    //MARK: -
+    //MARK: Interface handling
+    
+    @IBAction func onSearchButton(sender: UIButton) {
+        self.context = SearchContext(self.rootView?.searchField?.text ?? "")
+    }
+    
 }
 
 //MARK: -
@@ -42,12 +66,47 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        guard let repositories = self.fetchedResultsController.fetchedObjects else { return 0 }
+        return repositories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell()
+        cell.backgroundColor = .green
+        cell.textLabel?.text = "\(indexPath.row + 1)"
+        
+        return cell
+    }
+}
+
+//MARK: -
+//MARK: FetchResultsController delegate
+
+extension SearchViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.rootView?.tableView?.beginUpdates()
     }
     
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.rootView?.tableView?.endUpdates()
+    }
     
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?)
+    {
+        let tableView = self.rootView?.tableView
+        switch (type) {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView?.insertRows(at: [indexPath], with: .fade)
+            }
+            break;
+        case .delete:
+            if let indexPath = indexPath {
+                tableView?.deleteRows(at: [indexPath], with: .fade)
+            }
+            break;
+        default:
+            print("")
+        }
+    }
 }
