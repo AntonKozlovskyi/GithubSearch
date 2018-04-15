@@ -14,7 +14,7 @@ class SearchViewController: UIViewController, RootViewGettable {
     typealias RootViewType = SearchView
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<SearchRepository> = {
-        let descriptor = NSSortDescriptor(key: #keyPath(SearchRepository.stars), ascending: true)
+        let descriptor = NSSortDescriptor(key: #keyPath(SearchRepository.stars), ascending: false)
         let request = SearchRepository.createFetchRequest(sortDescriptors: [descriptor])
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
                                                                   managedObjectContext: CoreDataManager.shared.viewContext,
@@ -71,9 +71,8 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeue(Search)
-        cell.backgroundColor = .green
-        cell.textLabel?.text = "\(indexPath.row + 1)"
+        let cell = tableView.dequeue(SearchCell.self)
+        cell.fill(with: self.fetchedResultsController.object(at: indexPath))
         
         return cell
     }

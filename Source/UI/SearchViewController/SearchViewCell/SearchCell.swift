@@ -8,6 +8,10 @@
 
 import UIKit
 
+fileprivate struct Keys {
+    static let maxTextLength = 30
+}
+
 class SearchCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel?
     
@@ -15,7 +19,13 @@ class SearchCell: UITableViewCell {
     //MARK: Public
     
     func fill(with model:SearchRepository) {
-        
+        if let name = model.name {
+            var string = name
+            if string.count > Keys.maxTextLength {
+                string = String(string.prefix(Keys.maxTextLength))
+            }
+            
+            self.titleLabel?.text = string
+        }
     }
-    
 }
