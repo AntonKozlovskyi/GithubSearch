@@ -16,6 +16,7 @@ fileprivate struct Keys {
     static let id = "id"
     static let name = "name"
     static let stars = "stargazers_count"
+    static let url = "html_url"
 }
 
 class SearchContext {
@@ -73,6 +74,7 @@ class SearchContext {
                 let repository = SearchRepository(context: backgroundContext)
                 repository.name = $0[Keys.name] as? String
                 repository.id = $0[Keys.id] as? String
+                repository.url = $0[Keys.url] as? String
                 repository.stars = $0[Keys.stars] as? Int64 ?? 0
             }
 
