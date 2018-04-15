@@ -47,7 +47,9 @@ class SearchViewController: UIViewController, RootViewGettable {
     //MARK: Interface handling
     
     @IBAction func onSearchButton(sender: UIButton) {
-        self.context = SearchContext(self.rootView?.searchField?.text ?? "")
+        if let string = self.rootView?.searchField?.text, string.count > 0 {
+            self.context = SearchContext(string)
+        }
     }
     
 }
@@ -57,6 +59,8 @@ class SearchViewController: UIViewController, RootViewGettable {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repository = self.fetchedResultsController.object(at: indexPath)
+        
         
     }
 }
