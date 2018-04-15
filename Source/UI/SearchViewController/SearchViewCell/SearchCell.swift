@@ -1,5 +1,5 @@
 //
-//  SearchViewCell.swift
+//  SearchCell.swift
 //  GithubSearch
 //
 //  Created by Anton Kozlovskyi on 4/16/18.
@@ -8,8 +8,14 @@
 
 import UIKit
 
-class SearchViewCell: UITableViewCell {
-
+class SearchCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel?
+    
+    //MARK: -
+    //MARK: Public
+    
+    func fill(with model:SearchRepository) {
+        
+    }
     
 }

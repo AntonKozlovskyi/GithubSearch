@@ -71,7 +71,7 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeue(Search)
         cell.backgroundColor = .green
         cell.textLabel?.text = "\(indexPath.row + 1)"
         
