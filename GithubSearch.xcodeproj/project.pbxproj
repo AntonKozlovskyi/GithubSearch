@@ -15,8 +15,6 @@
 		A5EA642D20813F83003A31A8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA642C20813F83003A31A8 /* SearchView.swift */; };
 		A5EA643020815268003A31A8 /* RootViewGettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA642F20815268003A31A8 /* RootViewGettable.swift */; };
 		A5EA6433208159D6003A31A8 /* SearchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA6432208159D6003A31A8 /* SearchContext.swift */; };
-		A5EA643620838EA5003A31A8 /* URLSession+GithubSearchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA643520838EA5003A31A8 /* URLSession+GithubSearchExtensions.swift */; };
-		A5EA643C2083ACFD003A31A8 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5EA643A2083ACFD003A31A8 /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +28,6 @@
 		A5EA642C20813F83003A31A8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		A5EA642F20815268003A31A8 /* RootViewGettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewGettable.swift; sourceTree = "<group>"; };
 		A5EA6432208159D6003A31A8 /* SearchContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContext.swift; sourceTree = "<group>"; };
-		A5EA643520838EA5003A31A8 /* URLSession+GithubSearchExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+GithubSearchExtensions.swift"; sourceTree = "<group>"; };
-		A5EA643B2083ACFD003A31A8 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +72,9 @@
 		A5EA642520813F0A003A31A8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A5EA64372083AC86003A31A8 /* Models */,
-				A5EA643420838E83003A31A8 /* Extensions */,
 				A5EA642E20815258003A31A8 /* Protocols */,
 				A5EA64312081599F003A31A8 /* Contexts */,
 				A5EA642620813F1B003A31A8 /* UI */,
-				A5EA64382083AC99003A31A8 /* Utils */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -118,37 +111,6 @@
 				A5EA6432208159D6003A31A8 /* SearchContext.swift */,
 			);
 			path = Contexts;
-			sourceTree = "<group>";
-		};
-		A5EA643420838E83003A31A8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A5EA643520838EA5003A31A8 /* URLSession+GithubSearchExtensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A5EA64372083AC86003A31A8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		A5EA64382083AC99003A31A8 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				A5EA64392083ACB0003A31A8 /* CoreData */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		A5EA64392083ACB0003A31A8 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				A5EA643A2083ACFD003A31A8 /* CoreData.xcdatamodeld */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +190,6 @@
 				A5EA642A20813F69003A31A8 /* SearchViewController.swift in Sources */,
 				A5EA642D20813F83003A31A8 /* SearchView.swift in Sources */,
 				A5EA641420813E43003A31A8 /* AppDelegate.swift in Sources */,
-				A5EA643620838EA5003A31A8 /* URLSession+GithubSearchExtensions.swift in Sources */,
-				A5EA643C2083ACFD003A31A8 /* CoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,19 +364,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A5EA643A2083ACFD003A31A8 /* CoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A5EA643B2083ACFD003A31A8 /* CoreData.xcdatamodel */,
-			);
-			currentVersion = A5EA643B2083ACFD003A31A8 /* CoreData.xcdatamodel */;
-			path = CoreData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A5EA640820813E43003A31A8 /* Project object */;
 }
