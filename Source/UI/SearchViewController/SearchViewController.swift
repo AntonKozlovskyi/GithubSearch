@@ -55,22 +55,6 @@ class SearchViewController: UIViewController, RootViewGettable {
 }
 
 //MARK: -
-//MARK: UITableView delegate
-
-extension SearchViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let repository = self.fetchedResultsController.object(at: indexPath)
-        
-        let controller = WebViewController()
-        controller.URLString = repository.url
-        controller.modalTransitionStyle = .crossDissolve
-        controller.modalPresentationStyle = .overCurrentContext
-
-        self.present(controller, animated: true, completion: nil)
-    }
-}
-
-//MARK: -
 //MARK: UITableView dataSource
 
 extension SearchViewController: UITableViewDataSource {
@@ -81,7 +65,8 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(SearchCell.self)
-        cell.fill(with: self.fetchedResultsController.object(at: indexPath))
+        cell.model = self.fetchedResultsController.object(at: indexPath)
+        cell.delegate = self
         
         return cell
     }
@@ -116,5 +101,20 @@ extension SearchViewController: NSFetchedResultsControllerDelegate {
         default:
             print("")
         }
+    }
+}
+
+//MARK: -
+//MARK: SearchDelegate
+
+extension SearchViewController: SearchDelegate {
+    func cell(_ cell: SearchCell, didSelect model: SearchRepository) {
+        let controller = WebViewController()
+        controller.URLString = model.url
+        controller.modalTransitionStyle = .crossDissolve
+        controller.modalPresentationStyle = .overCurrentContext
+        
+        self.present(controller, animated: true, completion: nil)
+
     }
 }

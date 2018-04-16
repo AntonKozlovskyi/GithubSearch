@@ -13,9 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow()
-        self.window?.rootViewController = SearchViewController()
-        self.window?.makeKeyAndVisible()
+        let window = UIWindow()
+        window.rootViewController = SearchViewController()
+        window.makeKeyAndVisible()
+        self.window = window
         
         return true
     }
