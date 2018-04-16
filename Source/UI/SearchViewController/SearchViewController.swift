@@ -61,7 +61,12 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let repository = self.fetchedResultsController.object(at: indexPath)
         
-        
+        let controller = WebViewController()
+        controller.URLString = repository.url
+        controller.modalTransitionStyle = .crossDissolve
+        controller.modalPresentationStyle = .overCurrentContext
+
+        self.present(controller, animated: true, completion: nil)
     }
 }
 

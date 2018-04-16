@@ -11,6 +11,9 @@
 		A5B1811F20840E2C005EA706 /* UINib+GithubSearchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B1811E20840E2C005EA706 /* UINib+GithubSearchExtensions.swift */; };
 		A5B1812420840F99005EA706 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B1812220840F99005EA706 /* SearchCell.xib */; };
 		A5B1812620841221005EA706 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B1812520841221005EA706 /* SearchCell.swift */; };
+		A5B1812A20841B35005EA706 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B1812820841B35005EA706 /* WebViewController.swift */; };
+		A5B1812B20841B35005EA706 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B1812920841B35005EA706 /* WebViewController.xib */; };
+		A5B1812D20841B60005EA706 /* WebViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B1812C20841B60005EA706 /* WebViewView.swift */; };
 		A5EA641420813E43003A31A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA641320813E43003A31A8 /* AppDelegate.swift */; };
 		A5EA641B20813E43003A31A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5EA641A20813E43003A31A8 /* Assets.xcassets */; };
 		A5EA641E20813E43003A31A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EA641C20813E43003A31A8 /* LaunchScreen.storyboard */; };
@@ -33,6 +36,9 @@
 		A5B1811E20840E2C005EA706 /* UINib+GithubSearchExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+GithubSearchExtensions.swift"; sourceTree = "<group>"; };
 		A5B1812220840F99005EA706 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		A5B1812520841221005EA706 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		A5B1812820841B35005EA706 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		A5B1812920841B35005EA706 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		A5B1812C20841B60005EA706 /* WebViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewView.swift; sourceTree = "<group>"; };
 		A5EA641020813E43003A31A8 /* GithubSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EA641320813E43003A31A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5EA641A20813E43003A31A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +76,16 @@
 				A5B1812220840F99005EA706 /* SearchCell.xib */,
 			);
 			path = SearchViewCell;
+			sourceTree = "<group>";
+		};
+		A5B1812720841B20005EA706 /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A5B1812820841B35005EA706 /* WebViewController.swift */,
+				A5B1812920841B35005EA706 /* WebViewController.xib */,
+				A5B1812C20841B60005EA706 /* WebViewView.swift */,
+			);
+			path = WebViewController;
 			sourceTree = "<group>";
 		};
 		A5EA640720813E43003A31A8 = {
@@ -116,6 +132,7 @@
 		A5EA642620813F1B003A31A8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A5B1812720841B20005EA706 /* WebViewController */,
 				A5EA642720813F36003A31A8 /* SearchViewController */,
 			);
 			path = UI;
@@ -248,6 +265,7 @@
 				A5B1812420840F99005EA706 /* SearchCell.xib in Resources */,
 				A5EA641E20813E43003A31A8 /* LaunchScreen.storyboard in Resources */,
 				A5EA641B20813E43003A31A8 /* Assets.xcassets in Resources */,
+				A5B1812B20841B35005EA706 /* WebViewController.xib in Resources */,
 				A5EA642B20813F69003A31A8 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B1812D20841B60005EA706 /* WebViewView.swift in Sources */,
 				A5EA643020815268003A31A8 /* RootViewGettable.swift in Sources */,
 				A5EA7E352083C3F400C7396D /* SearchRepository.swift in Sources */,
 				A5EA6433208159D6003A31A8 /* SearchContext.swift in Sources */,
@@ -274,6 +293,7 @@
 				A5EA7E3A2083C87100C7396D /* NSManagedObjectContext+CoreDataExtensions.swift in Sources */,
 				A5B1811D20840DE7005EA706 /* UITableView+GithubSearchExtensions.swift in Sources */,
 				A5EA643C2083ACFD003A31A8 /* CoreData.xcdatamodeld in Sources */,
+				A5B1812A20841B35005EA706 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

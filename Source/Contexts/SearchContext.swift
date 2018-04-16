@@ -27,7 +27,7 @@ class SearchContext {
     //MARK: Initialization
     
     convenience init() {
-        self.init("topic")
+        self.init("")
     }
     
     init(_ searchWord: String) {
@@ -73,7 +73,7 @@ class SearchContext {
             items.forEach {
                 let repository = SearchRepository(context: backgroundContext)
                 repository.name = $0[Keys.name] as? String
-                repository.id = $0[Keys.id] as? String
+                repository.id = $0[Keys.id] as? Int64 ?? 0
                 repository.url = $0[Keys.url] as? String
                 repository.stars = $0[Keys.stars] as? Int64 ?? 0
             }

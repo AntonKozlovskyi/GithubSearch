@@ -15,7 +15,7 @@ extension SearchRepository {
         return NSFetchRequest<SearchRepository>(entityName: "SearchRepository")
     }
 
-    @NSManaged public var id: String?
+    @NSManaged public var id: Int64
     @NSManaged public var name: String?
     @NSManaged public var stars: Int64
     @NSManaged public var url: String?
